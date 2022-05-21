@@ -3,7 +3,7 @@ class BooksController < ApplicationController
   def index
     @books = Book.all.order("created_at DESC")
   end
-
+# modify3
   def show
     @book = Book.find(params[:id])
   end
@@ -22,7 +22,7 @@ class BooksController < ApplicationController
       render 'new'
     end
   end
-# modification
+
   def edit
   end
 
