@@ -9,11 +9,11 @@ class BooksController < ApplicationController
   end
   # modification 
   def new
-    @book = Book.new
+    @book = current_user.books.build
   end
 
   def create
-    @book = Book.new(book_params)
+    @book = current_user.books.build(book_params)
 
     if @book.save
       flash[:success] =  "New book created successfully!"
