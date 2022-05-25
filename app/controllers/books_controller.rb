@@ -17,7 +17,7 @@ class BooksController < ApplicationController
     @book = current_user.books.build
     @categories = Category.all.map{ |c| [c.name, c.id] }
   end
-
+# modify4
   def create
     @book = current_user.books.build(book_params)
     @book.category_id = params[:category_id]
