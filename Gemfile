@@ -40,6 +40,10 @@ group :development, :test do
   gem 'byebug'
   gem 'rspec-rails'
   gem 'shoulda-matchers'
+  gem 'factory_girl_rails'
+  #gem 'factory_bot_rails'
+  #gem 'faker'
+  #gem 'byebug'
 end
 
 group :development do
