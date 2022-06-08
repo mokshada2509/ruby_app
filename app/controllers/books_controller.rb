@@ -19,6 +19,7 @@ class BooksController < ApplicationController
   end
 # modify4
   def create
+   # byebug
     @book = current_user.books.build(book_params)
     @book.category_id = params[:category_id]
 
@@ -31,16 +32,25 @@ class BooksController < ApplicationController
   end
 
   def edit
+  
+    # @book.category_id = params[:category_id]
+    # if @categories.nil?
+    #   flash[:alert] = "enter valid details"
+    # else
+    @categories = Category.all || []
     @categories = Category.all.map{ |c| [c.name, c.id] }
+
+    #end
   end
 
   def update
+    #byebug
     @book.category_id = params[:category_id]
     if @book.update(book_params)
       flash[:success] =  "Book details updated!"
       redirect_to book_path(@book)
     else
-      render 'edit'
+      render :edit
     end
   end
 
@@ -54,7 +64,7 @@ class BooksController < ApplicationController
 
         #params.require(:book).permit(:title, :description, :author, :category_id, :book_img)
         #params.require(:book).permit(:title, :description, :author, :category_id)
-        params.fetch(:book, {}).permit(:title, :description, :author, :category_id, :book_img)
+        params.fetch(:book, {}).permit(:title, :description, :author, :category_id, :book_img, :user_id)
 
       end
       def find_book
