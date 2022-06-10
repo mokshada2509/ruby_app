@@ -22,6 +22,7 @@ class BooksController < ApplicationController
    # byebug
     @book = current_user.books.build(book_params)
     @book.category_id = params[:category_id]
+    @categories = Category.all.map{ |c| [c.name, c.id] }
 
     if @book.save
       flash[:success] =  "New book created successfully!"
@@ -37,7 +38,7 @@ class BooksController < ApplicationController
     # if @categories.nil?
     #   flash[:alert] = "enter valid details"
     # else
-    @categories = Category.all || []
+    #@categories = Category.all || []
     @categories = Category.all.map{ |c| [c.name, c.id] }
 
     #end
