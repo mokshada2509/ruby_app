@@ -1,7 +1,12 @@
 
 <%= simple_form_for @book,:html => { :multipart => true } do |f|%>
-  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "Select a Category")%>
+  <h1></h1>
+  <%= select_tag(:category_id, options_for_select(@categories), :prompt => "* Select a Category", :required => true)%>
+  <h1> </h1>
+  <h5> <b>* Upload Book Image </b> </h5>
+  <h6></h6>
   <%= f.file_field :book_img %>
+  <h6></h6>
   <%= f.input :title , label: "Book Title" %>
  
   <%= f.input :description , label: "Book Description" %>
@@ -9,3 +14,6 @@
 
   <%= f.button :submit %>
 <% end %>
+
+
+
