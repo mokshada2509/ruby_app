@@ -41,7 +41,7 @@ RSpec.describe Book, type: :request do
     let!(:category) {create(:category)}
     let!(:book) { create(:book, category: category) }
    
-    it 'should success and render to edit page' do
+    it 'should success and render to show page' do
       execute_with_resource_sign_in(user) do
         get '/books/1', {
           book:{
@@ -151,10 +151,12 @@ RSpec.describe Book, type: :request do
        
   describe 'DELETE #destroy' do
     let!(:book){create(:book) }
-      it 'should delete book' do
+    it 'should delete book' do
+      execute_with_resource_sign_in(user) do
         expect{delete '/books/1', params:{ id: book.id } }.to change(Book, :count).by(-1)
         #expect(flash[:notice]).to eq 'Book deleted successfully!'
       end
+    end
   end
 end
 

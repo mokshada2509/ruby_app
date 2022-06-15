@@ -13,6 +13,7 @@ class ReviewsController < ApplicationController
 
 
     if @review.save
+      flash[:success] =  "New Review created successfully!"
       redirect_to book_path(@book)
     else
       render 'new'
@@ -24,6 +25,7 @@ class ReviewsController < ApplicationController
 
   def update
     if @review.update(review_params)
+      flash[:success] =  "Review updated!"
       redirect_to book_path(@book)
     else
       render 'edit'
@@ -33,6 +35,7 @@ class ReviewsController < ApplicationController
   def destroy
     @review.destroy
     redirect_to book_path(@book)
+    flash[:success] = "Review deleted successfully!"
   end
 
   private
