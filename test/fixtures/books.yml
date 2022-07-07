@@ -9,3 +9,13 @@ two:
   title: MyString
   description: MyText
   author: MyString
+
+# <% 30.times do |n| %>
+#   book_<%= n %>:
+#   # name: <%= "Book #{n}" %>
+#   # email: <%= "book-#{n}@example.com" %>
+#   # password_digest: <%= Book.digest('password') %>
+#     title: MyString
+#     description: MyText
+#     author: MyString
+# <% end %>

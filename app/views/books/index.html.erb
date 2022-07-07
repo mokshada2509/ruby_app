@@ -3,6 +3,7 @@
 <% if @books.count == 0 %>
   <h1>There are no books in this category </h1>
 <% else %>
+<%= will_paginate @books%>
   <div class="row">
     <% @books.each do |book| %>
       <div class="col-md-3">
@@ -12,4 +13,5 @@
       </div>
     <% end %>
   </div>
+<%= will_paginate @books%>
 <% end %>
